@@ -1,17 +1,13 @@
 //import { useHistory } from "react-router-dom";
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-
-
-
 import "./search-results.css";
 
 const SearchResultsRow = ({ project }) => {
   //const history = useHistory();
   const navigate = useNavigate();
-  {console.log("navigate " , navigate)};
-
   const setActive = () => {
+    console.log("project id ............", project.id);
     navigate(`/project/${project.id}`);
   };
 
@@ -21,7 +17,7 @@ const SearchResultsRow = ({ project }) => {
       <td>{project.price}</td>
       <td>{project.likes}</td>
     </tr>
-  );
+  )
 };
 
 export default SearchResultsRow;

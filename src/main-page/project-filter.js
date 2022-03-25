@@ -9,7 +9,6 @@ import ProjectsContext from "../context/projectsContext";
 const ProjectFilter = ({allProjects}) => {
         const navigate = useNavigate();
      //   const allProjects = useContext(ProjectsContext);
-        console.log('all project', allProjects)
 
         const categories = allProjects
         ? Array.from(new Set(allProjects.map((p) => p.category)))
@@ -18,7 +17,6 @@ const ProjectFilter = ({allProjects}) => {
         
         const onSearchChange = (e) => {
             const category = e.target.value;
-            {console.log("category value " , category)}
            navigate(`/searchresults/${category}`);
           };
 

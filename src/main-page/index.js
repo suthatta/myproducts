@@ -42,16 +42,17 @@ const userName ="Providing all Secound-Hands products"
     <Router> 
         <div className="container">   
          <Header subtitle ={userName} />
-         {console.log("All Projects ", allProjects)};
+         {console.log("All Projects main page ", allProjects)};
          <ProjectFilter allProjects ={allProjects} />
        
         </div>
 
       <Routes>
         <Route path="/about">About</Route>
+        {console.log(" all projects Route.... ", allProjects)};
         <Route path="/searchresults/:category" 
         element={ <SearchResults allprojects={allProjects} />} />
-        <Route pate="/project/:id" 
+        <Route path="/project/:id" 
         element={ <ProjectFromQuery allProjects={allProjects} />} />
         <Route path="/" 
         element={ <FeaturedProject project={featuredProject} />} />
