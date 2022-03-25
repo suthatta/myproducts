@@ -9,6 +9,7 @@ const SearchResultsRow = ({ project }) => {
   const setActive = () => {
     console.log("project id ............", project.id);
     navigate(`/project/${project.id}`);
+   // navigate(`/project/${}`);
   };
 
   return (
