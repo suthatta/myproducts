@@ -1,4 +1,5 @@
 //import { useHistory } from "react-router-dom";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -8,9 +9,10 @@ import "./search-results.css";
 const SearchResultsRow = ({ project }) => {
   //const history = useHistory();
   const navigate = useNavigate();
+  {console.log("navigate " , navigate)};
 
   const setActive = () => {
-    navigate.push(`/project/${project.id}`);
+    navigate(`/project/${project.id}`);
   };
 
   return (

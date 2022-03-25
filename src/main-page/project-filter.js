@@ -1,12 +1,15 @@
 
+
+import React from "react";
 import { useContext } from "react";
 //import { useHistory } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import ProjectsContext from "../context/projectsContext";
 
-const ProjectFilter = () => {
+const ProjectFilter = ({allProjects}) => {
         const navigate = useNavigate();
-        const allProjects = useContext(ProjectsContext);
+     //   const allProjects = useContext(ProjectsContext);
+        console.log('all project', allProjects)
 
         const categories = allProjects
         ? Array.from(new Set(allProjects.map((p) => p.category)))
@@ -15,7 +18,8 @@ const ProjectFilter = () => {
         
         const onSearchChange = (e) => {
             const category = e.target.value;
-            navigate.push(`/searchresults/${category}`);
+            {console.log("category value " , category)}
+           navigate(`/searchresults/${category}`);
           };
 
     return ( 
@@ -24,7 +28,8 @@ const ProjectFilter = () => {
           Look for projects category:
         </div>
         <div className="col-md-4 mb-3">
-          <select className="form-select" onChange={onSearchChange}>
+       {console.log("category ", categories )}
+          <select title="test" className="form-select" onChange={onSearchChange}>
             {categories.map((c) => (
               <option key={c} value={c}>
                 {c}

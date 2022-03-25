@@ -1,19 +1,25 @@
+
+import React from "react";
 import { useEffect, useState, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './main-page.css';
 import Header from './header';
 import FeaturedProject from './featured-project';
-import SearchReaults from '../search-results';
+import SearchResults from '../search-results';
 import ProjectFilter from './project-filter';
+import useProjects from "../hooks/useProjects";
+//import useFeaturedProjects from "../hooks/useFeaturedProject";
 import ProjectFromQuery from '../project/ProjectFromQuery';
 
 
 // props is suptitle sent to header.js
 
 function App() {
+//  const projects = useProjects();
 const [allProjects, setAllProjects ] = useState([]);
 
 useEffect(() => {
+
   const fetchData = async () => {
     const rsp = await fetch("/projects.json");
     const projects = await rsp.json();
@@ -31,18 +37,20 @@ let featuredProject = useMemo(() => {
 
 
   
-const userName ="Providing all learning projects by Suthatta"
+const userName ="Providing all Secound-Hands products"
   return (
     <Router> 
         <div className="container">   
          <Header subtitle ={userName} />
+         {console.log("All Projects ", allProjects)};
          <ProjectFilter allProjects ={allProjects} />
+       
         </div>
 
       <Routes>
         <Route path="/about">About</Route>
         <Route path="/searchresults/:category" 
-        element={ <SearchReaults allprojects={allProjects} />} />
+        element={ <SearchResults allprojects={allProjects} />} />
         <Route pate="/project/:id" 
         element={ <ProjectFromQuery allProjects={allProjects} />} />
         <Route path="/" 

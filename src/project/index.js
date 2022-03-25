@@ -1,3 +1,5 @@
+
+import React from "react";
 import "./project.css"
 import { useState } from "react";
 import emailIcon from "./Email.png";
@@ -13,7 +15,7 @@ const Project = ({project}) => {
     <div>
         <div>
             <div className="row mt-2">
-                <h5 className="col-md-12">{project.country}</h5>
+                <h5 className="col-md-12">{project.category}</h5>
             </div>
             <div className="row">
             <h3 className="col-md-12">{project.address}</h3>

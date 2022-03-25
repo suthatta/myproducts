@@ -6,7 +6,7 @@ const useFeaturedProject = (allProjects) => {
       const randomIndex = Math.floor(Math.random() * allProjects.length);
       return allProjects[randomIndex];
     }
-  }, [allHouses]);
+  }, [allProjects]);
 
   return featuredProject;
 };
