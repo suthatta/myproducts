@@ -1,12 +1,16 @@
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+
 
 import "./search-results.css";
 
 const SearchResultsRow = ({ project }) => {
-  const history = useHistory();
+  //const history = useHistory();
+  const navigate = useNavigate();
 
   const setActive = () => {
-    history.push(`/project/${project.id}`);
+    navigate.push(`/project/${project.id}`);
   };
 
   return (
